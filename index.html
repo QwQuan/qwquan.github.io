@@ -205,14 +205,24 @@
 
       
           <h2 id="使用github域名"><a href="#使用github域名" class="headerlink" title="使用github域名"></a>使用github域名</h2><p><a target="_blank" rel="noopener" href="https://pages.github.com/">创建github仓库，使用github域名</a></p>
-<h2 id="安装HEXO"><a href="#安装HEXO" class="headerlink" title="安装HEXO"></a>安装<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/index.html">HEXO</a></h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装</span></span><br><span class="line">npm install -g hexo-cli </span><br><span class="line"><span class="comment"># 初始化</span></span><br><span class="line">hexo init blog</span><br></pre></td></tr></table></figure>
-
-<h2 id="安装next主题"><a href="#安装next主题" class="headerlink" title="安装next主题"></a>安装next主题</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git submodule add https://github.com/theme-next/hexo-theme-next themes/next</span><br></pre></td></tr></table></figure>
+<h2 id="安装HEXO"><a href="#安装HEXO" class="headerlink" title="安装HEXO"></a>安装<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/index.html">HEXO</a></h2><pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 安装</span>
+<span class="token function">npm</span> <span class="token function">install</span> -g hexo-cli 
+<span class="token comment" spellcheck="true"># 初始化</span>
+hexo init blog
+</code></pre>
+<h2 id="安装next主题"><a href="#安装next主题" class="headerlink" title="安装next主题"></a>安装next主题</h2><pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> submodule add https://github.com/theme-next/hexo-theme-next themes/next
+</code></pre>
 <p>更改 .&#x2F;_config.yml文件中theme: next<br>拷贝.&#x2F;themes&#x2F;_config -&gt; .&#x2F;_config.next.yml</p>
 <p>然后探索了一下_config.next.yml</p>
-<h2 id="部署HEXO"><a href="#部署HEXO" class="headerlink" title="部署HEXO"></a>部署HEXO</h2><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span>  </span><br><span class="line">	<span class="attr">type:</span> <span class="string">git</span>  </span><br><span class="line">	<span class="attr">repo:</span> <span class="string">https://github.com/QwQuan/qwquan.github.io.git</span>  </span><br><span class="line">	<span class="attr">branch:</span> <span class="string">main</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean </span><br><span class="line">hexo generate </span><br><span class="line">hexo deploy</span><br></pre></td></tr></table></figure>
-
+<h2 id="部署HEXO"><a href="#部署HEXO" class="headerlink" title="部署HEXO"></a>部署HEXO</h2><pre class=" language-yml"><code class="language-yml">deploy:  
+    type: git  
+    repo: https://github.com/QwQuan/qwquan.github.io.git  
+    branch: main
+</code></pre>
+<pre class=" language-bash"><code class="language-bash">hexo clean 
+hexo generate 
+hexo deploy
+</code></pre>
 <p>搞定了！</p>
 
       
@@ -289,13 +299,27 @@
       
           <h3 id="重新安装驱动"><a href="#重新安装驱动" class="headerlink" title="重新安装驱动"></a>重新安装驱动</h3><p>dkms remove -m nvidia -v 510.73.06 –all</p>
 <h3 id="vGPU-version"><a href="#vGPU-version" class="headerlink" title="vGPU version"></a>vGPU version</h3><p>如果使用的版本是14.1<a target="_blank" rel="noopener" href="https://github.com/VGPU-Community-Drivers/NV-VGPU-Driver/releases/tag/1.0.1">vGPU Version 14.1</a><br><a target="_blank" rel="noopener" href="https://github.com/VGPU-Community-Drivers/NV-VGPU-Driver/releases">https://github.com/VGPU-Community-Drivers/NV-VGPU-Driver/releases</a><br>新增：驱动下载可与查看这里(未测试)<br><a target="_blank" rel="noopener" href="https://cloud.google.com/compute/docs/gpus/grid-drivers-table?hl=zh-cn">https://cloud.google.com/compute/docs/gpus/grid-drivers-table?hl=zh-cn</a></p>
-<h3 id="vGPU激活"><a href="#vGPU激活" class="headerlink" title="vGPU激活"></a>vGPU激活</h3><h4 id="安装服务"><a href="#安装服务" class="headerlink" title="安装服务"></a>安装服务</h4><p>一般情况下使用，特殊情况使用venderid伪装成正常显卡<br> <a target="_blank" rel="noopener" href="https://gitea.publichub.eu/oscar.krause/fastapi-dls">fastapi-dls 开源项目</a><br> 容器地址是：<a target="_blank" rel="noopener" href="https://hub.docker.com/r/collinwebdesigns/fastapi-dls">https://hub.docker.com/r/collinwebdesigns/fastapi-dls</a><br> <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 设定工作目录并创建</span></span><br><span class="line">WORKING_DIR=/opt/docker/fastapi-dls/cert</span><br><span class="line"><span class="built_in">mkdir</span> -p <span class="variable">$WORKING_DIR</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成相关证书</span></span><br><span class="line"><span class="built_in">cd</span> <span class="variable">$WORKING_DIR</span></span><br><span class="line">openssl genrsa -out <span class="variable">$WORKING_DIR</span>/instance.private.pem 2048</span><br><span class="line">openssl rsa -<span class="keyword">in</span> <span class="variable">$WORKING_DIR</span>/instance.private.pem -outform PEM -pubout -out <span class="variable">$WORKING_DIR</span>/instance.public.pem</span><br><span class="line">openssl req -x509 -nodes -days 3650 -newkey rsa:2048 -keyout  <span class="variable">$WORKING_DIR</span>/webserver.key -out <span class="variable">$WORKING_DIR</span>/webserver.crt</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建容器的官方建议命令</span></span><br><span class="line">docker run -e LEASE_EXPIRE_DAYS=1825 -e DLS_URL=192.168.10.85 -e DLS_PORT=443 -p 443:443 -v <span class="variable">$WORKING_DIR</span>:/app/cert collinwebdesigns/fastapi-dls:latest</span><br><span class="line"></span><br><span class="line">docker run -e LEASE_EXPIRE_DAYS=1825 -e DLS_URL=192.168.11.84 -e DLS_PORT=443 -p 443:443 -v <span class="variable">$WORKING_DIR</span>:/app/cert collinwebdesigns/fastapi-dls:latest</span><br></pre></td></tr></table></figure><br>安装完成后检查地址<a target="_blank" rel="noopener" href="https://192.168.10.85/-/readme">https://192.168.10.85/-/readme</a></p>
-<h4 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h4><p>！！！安装dkms后启动驱动程序，使用dkms安装</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ./NVIDIA-Linux-***.sh --dkms</span><br></pre></td></tr></table></figure>
+<h3 id="vGPU激活"><a href="#vGPU激活" class="headerlink" title="vGPU激活"></a>vGPU激活</h3><h4 id="安装服务"><a href="#安装服务" class="headerlink" title="安装服务"></a>安装服务</h4><p>一般情况下使用，特殊情况使用venderid伪装成正常显卡<br> <a target="_blank" rel="noopener" href="https://gitea.publichub.eu/oscar.krause/fastapi-dls">fastapi-dls 开源项目</a><br> 容器地址是：<a target="_blank" rel="noopener" href="https://hub.docker.com/r/collinwebdesigns/fastapi-dls">https://hub.docker.com/r/collinwebdesigns/fastapi-dls</a><br> &#96;&#96;&#96;bash</p>
+<h1 id="设定工作目录并创建"><a href="#设定工作目录并创建" class="headerlink" title="设定工作目录并创建"></a>设定工作目录并创建</h1><p>WORKING_DIR&#x3D;&#x2F;opt&#x2F;docker&#x2F;fastapi-dls&#x2F;cert<br>mkdir -p $WORKING_DIR</p>
+<h1 id="生成相关证书"><a href="#生成相关证书" class="headerlink" title="生成相关证书"></a>生成相关证书</h1><p>cd $WORKING_DIR<br>openssl genrsa -out $WORKING_DIR&#x2F;instance.private.pem 2048<br>openssl rsa -in $WORKING_DIR&#x2F;instance.private.pem -outform PEM -pubout -out $WORKING_DIR&#x2F;instance.public.pem<br>openssl req -x509 -nodes -days 3650 -newkey rsa:2048 -keyout  $WORKING_DIR&#x2F;webserver.key -out $WORKING_DIR&#x2F;webserver.crt</p>
+<h1 id="创建容器的官方建议命令"><a href="#创建容器的官方建议命令" class="headerlink" title="创建容器的官方建议命令"></a>创建容器的官方建议命令</h1><p>docker run -e LEASE_EXPIRE_DAYS&#x3D;1825 -e DLS_URL&#x3D;192.168.10.85 -e DLS_PORT&#x3D;443 -p 443:443 -v $WORKING_DIR:&#x2F;app&#x2F;cert collinwebdesigns&#x2F;fastapi-dls:latest</p>
+<p>docker run -e LEASE_EXPIRE_DAYS&#x3D;1825 -e DLS_URL&#x3D;192.168.11.84 -e DLS_PORT&#x3D;443 -p 443:443 -v $WORKING_DIR:&#x2F;app&#x2F;cert collinwebdesigns&#x2F;fastapi-dls:latest</p>
+<pre><code>安装完成后检查地址https://192.168.10.85/-/readme
+#### Linux
 
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo curl --insecure -X GET https://192.168.10.85/-/client-token -o /etc/nvidia/ClientConfigToken/client_configuration_token.tok</span><br><span class="line"></span><br><span class="line">sudo curl --insecure -X GET https://192.168.11.87/-/client-token -o /etc/nvidia/ClientConfigToken/client_configuration_token.tok</span><br><span class="line">nvidia-smi -q | grep <span class="string">&quot;License&quot;</span></span><br></pre></td></tr></table></figure>
+！！！安装dkms后启动驱动程序，使用dkms安装
+</code></pre>
+<p>sudo .&#x2F;NVIDIA-Linux-***.sh –dkms</p>
+<pre><code>
+```bash
+sudo curl --insecure -X GET https://192.168.10.85/-/client-token -o /etc/nvidia/ClientConfigToken/client_configuration_token.tok
+
+sudo curl --insecure -X GET https://192.168.11.87/-/client-token -o /etc/nvidia/ClientConfigToken/client_configuration_token.tok
+nvidia-smi -q | grep &quot;License&quot;
+</code></pre>
 <h4 id="windows"><a href="#windows" class="headerlink" title="windows"></a>windows</h4><p>放置文件到：<br>C:\Program Files\NVIDIA Corporation\vGPU Licensing\ClientConfigToken</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nvidia-smi -q |findstr License</span><br></pre></td></tr></table></figure>
+<pre><code>nvidia-smi -q |findstr License
+</code></pre>
 
       
     </div>
@@ -371,11 +395,21 @@
       
           <h2 id="删除pve节点"><a href="#删除pve节点" class="headerlink" title="删除pve节点"></a>删除pve节点</h2><h3 id="ceph-manager，monitor，osd-等服务"><a href="#ceph-manager，monitor，osd-等服务" class="headerlink" title="ceph manager，monitor，osd,等服务"></a>ceph manager，monitor，osd,等服务</h3><pre><code>使用gui destory manager,monitor,OSD,medatdata Servers;
 </code></pre>
-<h3 id="清理clush-mapper"><a href="#清理clush-mapper" class="headerlink" title="清理clush mapper"></a>清理clush mapper</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ceph osd crush remove &lt;hostname&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="清理clush-mapper"><a href="#清理clush-mapper" class="headerlink" title="清理clush mapper"></a>清理clush mapper</h3><pre><code>ceph osd crush remove &lt;hostname&gt;
+</code></pre>
+<h3 id="删除节点"><a href="#删除节点" class="headerlink" title="删除节点"></a>删除节点</h3><pre><code># pvecm nodes
 
-<h3 id="删除节点"><a href="#删除节点" class="headerlink" title="删除节点"></a>删除节点</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># pvecm nodes</span><br><span class="line"></span><br><span class="line">Membership information</span><br><span class="line">----------------------</span><br><span class="line">    Nodeid      Votes Name</span><br><span class="line">         1          1 pve-node-5 (local)</span><br><span class="line">         2          1 pve-node-4</span><br><span class="line">         3          1 pve-node-3</span><br><span class="line">         4          1 pve-node-2</span><br><span class="line">         5          1 pve-node-temp</span><br></pre></td></tr></table></figure>
-
-<h3 id="关闭需要删除的节点"><a href="#关闭需要删除的节点" class="headerlink" title="关闭需要删除的节点"></a>关闭需要删除的节点</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># pvecm delnode pve-node-temp</span><br></pre></td></tr></table></figure>
+Membership information
+----------------------
+    Nodeid      Votes Name
+         1          1 pve-node-5 (local)
+         2          1 pve-node-4
+         3          1 pve-node-3
+         4          1 pve-node-2
+         5          1 pve-node-temp
+</code></pre>
+<h3 id="关闭需要删除的节点"><a href="#关闭需要删除的节点" class="headerlink" title="关闭需要删除的节点"></a>关闭需要删除的节点</h3><pre><code># pvecm delnode pve-node-temp
+</code></pre>
 <ul>
 <li>此时，您可能会收到一条错误消息，指出Could not kill node (error &#x3D; CS_ERR_NOT_EXIST)。这并不意味着删除节点的实际失败，而是 corosync 试图杀死离线节点的失败。因此，可以安全地忽略它。</li>
 </ul>
@@ -384,11 +418,17 @@
 <li>复制集群中 cluster-&gt;Join Information</li>
 <li>在待添加的节点GUI中Cluster-&gt;Join Cluster-&gt;Join Cluster中粘贴信息</li>
 </ul>
-<h2 id="安装ZFS-日志盘和缓存盘"><a href="#安装ZFS-日志盘和缓存盘" class="headerlink" title="安装ZFS 日志盘和缓存盘"></a>安装ZFS 日志盘和缓存盘</h2><h3 id="格式化硬件，使用gpt格式"><a href="#格式化硬件，使用gpt格式" class="headerlink" title="格式化硬件，使用gpt格式"></a>格式化硬件，使用gpt格式</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">parted /dev/sdf</span><br><span class="line">mklabel gpt</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 运行以下命令创建第一个 128GB 的分区：</span><br><span class="line">(parted) mkpart primary ext4 0% 50%</span><br><span class="line"># 运行以下命令创建第二个 128GB 的分区：</span><br><span class="line">(parted) mkpart primary ext4 50% 100%</span><br><span class="line">(parted) quit</span><br></pre></td></tr></table></figure>
-<h3 id="添加到pool"><a href="#添加到pool" class="headerlink" title="添加到pool"></a>添加到pool</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zpool add -f &lt;pool&gt; log &lt;device-part1&gt; cache &lt;device-part2&gt;</span><br></pre></td></tr></table></figure>
-
-
+<h2 id="安装ZFS-日志盘和缓存盘"><a href="#安装ZFS-日志盘和缓存盘" class="headerlink" title="安装ZFS 日志盘和缓存盘"></a>安装ZFS 日志盘和缓存盘</h2><h3 id="格式化硬件，使用gpt格式"><a href="#格式化硬件，使用gpt格式" class="headerlink" title="格式化硬件，使用gpt格式"></a>格式化硬件，使用gpt格式</h3><pre><code>parted /dev/sdf
+mklabel gpt
+</code></pre>
+<pre><code># 运行以下命令创建第一个 128GB 的分区：
+(parted) mkpart primary ext4 0% 50%
+# 运行以下命令创建第二个 128GB 的分区：
+(parted) mkpart primary ext4 50% 100%
+(parted) quit
+</code></pre>
+<h3 id="添加到pool"><a href="#添加到pool" class="headerlink" title="添加到pool"></a>添加到pool</h3><pre><code>zpool add -f &lt;pool&gt; log &lt;device-part1&gt; cache &lt;device-part2&gt;
+</code></pre>
 
       
     </div>
